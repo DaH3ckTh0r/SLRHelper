@@ -1,29 +1,33 @@
 ﻿using ClosedXML.Excel;
 using TesisHelper;
 
-FileInfo finfo = new FileInfo(@$"{Settings.Constants.MAIN_PATH}\{Settings.Constants.EXCEL_FILE_NAME}");
+ExcelSettings configuracionLibroExcel = ExcelSettingsHelper.CargarConfiguraciones();
+IXLWorkbook? libroExcel = ExcelTools.CargarArchivoDeTrabajo(configuracionLibroExcel);
+libroExcel?.CrearCabeceraEnTablaSiHojasEstanVacias(configuracionLibroExcel);
+
+FileInfo finfo = new FileInfo(@$"{AppSettings.Constants.MAIN_PATH}\{AppSettings.Constants.EXCEL_FILE_NAME}");
 if (!(finfo.Extension == ".xls" || finfo.Extension == ".xlsx" || finfo.Extension == ".xlt" || finfo.Extension == ".xlsm" || finfo.Extension == ".csv"))
     throw new Exception("Archivo no valido");
 
-IXLWorksheet? worksheet = ExcelForPapersEvaluation.LoadEvaluationTable(finfo.FullName);
+IXLWorksheet? worksheet = ExcelTools.CargarArchivoDeTrabajo(finfo.FullName);
 
 if (worksheet != null)
 {
-    Settings.PreguntasDeInvestigacion =
+    AppSettings.PreguntasDeInvestigacion =
         Enumerable.Range(1, 6).Select(i =>
         {
             TipoPregunta tipoPregunta = TipoPregunta.EvaluaSegunPdf;
             return new PreguntaInvestigacion(i, tipoPregunta);
         }).ToArray();
 
-    Settings.PreguntasDeInclusion =
+    AppSettings.PreguntasDeInclusion =
         Enumerable.Range(1, 5).Select(i =>
         {
             TipoPregunta tipoPregunta = TipoPregunta.EvaluaSegunPdf;
             return new PreguntaInclusion(i, tipoPregunta);
         }).ToArray();
 
-    Settings.PreguntasDeExclusion =
+    AppSettings.PreguntasDeExclusion =
         Enumerable.Range(1, 5).Select(i =>
         {
             TipoPregunta tipoPregunta = i switch
@@ -35,11 +39,11 @@ if (worksheet != null)
             return new PreguntaExclusion(i, tipoPregunta);
         }).ToArray();
 
-    Settings.IdsAProcesar = [469, 472, 485];
+    AppSettings.IdsAProcesar = [469, 472, 485];
 
-    Settings.PreguntasDeExclusion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: Settings.IdsAProcesar);
-    Settings.PreguntasDeInclusion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: Settings.IdsAProcesar);
-    Settings.PreguntasDeInvestigacion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: Settings.IdsAProcesar);
+    AppSettings.PreguntasDeExclusion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: AppSettings.IdsAProcesar);
+    AppSettings.PreguntasDeInclusion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: AppSettings.IdsAProcesar);
+    AppSettings.PreguntasDeInvestigacion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: AppSettings.IdsAProcesar);
     MessageBox.Show("¡Terminé!", "Ya puedes revisar los archivos generados y el Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
 }
 

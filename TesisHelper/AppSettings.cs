@@ -1,6 +1,6 @@
 ﻿namespace TesisHelper
 {
-    internal static class Settings
+    internal static class AppSettings
     {
         public static class Constants
         {
@@ -22,6 +22,82 @@
             public const string NO_DEFINIDO = "¿?";
             public const string ARCHIVO_NO_ENCONTRADO = "Not Found";
             public const string DOCUMENTO_NO_ENCONTRADO = "Document not available";
+
+            public const string ESTILO_POR_DEFECTO = "Normal";
+        }
+
+        public enum TipoFuente
+        {
+            [StringValue("Times New Roman")]
+            TimesNewRoman,
+            [StringValue("Arial")]
+            Arial,
+            [StringValue("Tahoma")]
+            Tahoma
+        }
+
+        public enum Color
+        {
+            [StringValue("NoColor")]
+            Ninguno,
+            [StringValue("Black")]
+            Negro,
+            [StringValue("White")]
+            Blanco,
+            [StringValue("Blue")]
+            Azul,
+            [StringValue("Red")]
+            Rojo,
+            [StringValue("Green")]
+            Verde,
+            [StringValue("DarkGreen")]
+            VerdeOscuro,
+            [StringValue("DarkGreen1")]
+            VerdeOscuro1,
+            [StringValue("TealGreen")]
+            VerdeTurquesa,
+            [StringValue("TealBlue")]
+            AzulTurquesa,
+            [StringValue("Teal")]
+            Turquesa
+        }
+
+        public enum TipoBorde
+        {
+            [StringValue("None")]
+            Ninguno,
+            [StringValue("Thin")]
+            Fino,
+            [StringValue("Double")]
+            Doble,
+            [StringValue("Medium")]
+            Medio,
+            [StringValue("Thick")]
+            Grueso
+        }
+
+        public enum AlineamientoHorizontal
+        {
+            [StringValue("Left")]
+            Izquierda,
+            [StringValue("Center")]
+            Centro,
+            [StringValue("Right")]
+            Derecha,
+            [StringValue("Justified")]
+            Justificado
+        }
+
+        public enum AlineamientoVertical
+        {
+            [StringValue("Top")]
+            Arriba,
+            [StringValue("Bottom")]
+            Abajo,
+            [StringValue("Center")]
+            Centro,
+            [StringValue("Distributed")]
+            Distribuido
         }
 
         public static class Keys

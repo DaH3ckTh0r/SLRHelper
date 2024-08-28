@@ -1,0 +1,538 @@
+{
+  "Excel": {
+    "NombreDelArchivo": "Revisión Sistemática de la Literatura.xlsx",
+    "RutaDelArchivo": "C:\\Temp\\Direccion de Tesis I",
+    "Tablas": {
+      "Estudios Primarios": {
+        "Posicion": 1,
+        "FilasNoIncluidas": 1,
+        "ColumnasNoIncluidas": 1,
+        "Estilo": "TituloCabecera",
+        "Cabeceras": {
+          "Item": {
+            "Titulo": "#",
+            "Posicion": 1,
+            "Ancho": 7.14,
+            "Altura": 20.25
+          },
+          "Origen": {
+            "Titulo": "Base de Datos",
+            "Posicion": 2,
+            "Ancho": 17
+          },
+          "TipoArticulo": {
+            "Titulo": "Tipo",
+            "Posicion": 3,
+            "Ancho": 12.57
+          },
+          "TituloArticulo": {
+            "Titulo": "Título",
+            "Posicion": 4,
+            "Ancho": 45.71
+          },
+          "ResumenArticulo": {
+            "Titulo": "Resumen",
+            "Posicion": 5,
+            "Ancho": 82.57
+          },
+          "AutoresArticulo": {
+            "Titulo": "Autores",
+            "Posicion": 6,
+            "Ancho": 18.57
+          },
+          "PublicadoEn": {
+            "Titulo": "Publicación",
+            "Posicion": 7,
+            "Ancho": 21.57
+          },
+          "VolumenPublicacion": {
+            "Titulo": "Volumen",
+            "Posicion": 8,
+            "Ancho": 10.86
+          },
+          "NumeroPublicacion": {
+            "Titulo": "Número",
+            "Posicion": 9,
+            "Ancho": 10
+          },
+          "PaginasEnPublicacion": {
+            "Titulo": "Páginas",
+            "Posicion": 10,
+            "Ancho": 11.86
+          },
+          "AnoPublicacion": {
+            "Titulo": "Año",
+            "Posicion": 11,
+            "Ancho": 6.14
+          },
+          "IdentificadorArticulo": {
+            "Titulo": "DOI",
+            "Posicion": 12,
+            "Ancho": 32.57
+          },
+          "UrlArticulo": {
+            "Titulo": "URL",
+            "Posicion": 13,
+            "Ancho": 46.14
+          },
+          "NombreArchivoArticulo": {
+            "Titulo": "Nombre del Archivo",
+            "Posicion": 14,
+            "Ancho": 46.14
+          },
+          "RutaArchivoArticulo": {
+            "Titulo": "Ruta del Archivo",
+            "Posicion": 15,
+            "Ancho": 29.43
+          }
+        }
+      },
+      "Criterios de Evaluación": {
+        "Posicion": 2,
+        "FilasNoIncluidas": 1,
+        "ColumnasNoIncluidas": 1,
+        "Estilo": "TituloCabecera",
+        "Columnas": {
+          "Item": {
+            "Titulo": "#",
+            "Posicion": 1,
+            "Ancho": 7.14
+          },
+          "Origen": {
+            "Titulo": "Base de Datos",
+            "Posicion": 2,
+            "Ancho": 17
+          },
+          "TipoArticulo": {
+            "Titulo": "Tipo",
+            "Posicion": 3,
+            "Ancho": 12.57
+          },
+          "TituloArticulo": {
+            "Titulo": "Título",
+            "Posicion": 4,
+            "Ancho": 45.71
+          },
+          "CriteriosExclusion": {
+            "Titulo": "Criterios de Exclusión",
+            "Posicion": 5,
+            "Columnas": [
+              {
+                "Titulo": "CE1",
+                "Posicion": 1,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE2",
+                "Posicion": 2,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE3",
+                "Posicion": 3,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE4",
+                "Posicion": 4,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE5",
+                "Posicion": 5,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              }
+            ]
+          },
+          "CriteriosInclusion": {
+            "Titulo": "Criterios de Inclusión",
+            "Posicion": 6,
+            "Columnas": [
+              {
+                "Titulo": "CI1",
+                "Posicion": 1,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI2",
+                "Posicion": 2,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI3",
+                "Posicion": 3,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI4",
+                "Posicion": 4,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI5",
+                "Posicion": 5,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              }
+            ]
+          }
+        }
+      },
+      "Preguntas de Investigación": {
+        "Posicion": 3,
+        "FilasNoIncluidas": 1,
+        "ColumnasNoIncluidas": 1,
+        "Estilo": "TituloCabecera",
+        "Columnas": {
+          "Item": {
+            "Titulo": "#",
+            "Posicion": 1,
+            "Ancho": 7.14
+          },
+          "Origen": {
+            "Titulo": "Base de Datos",
+            "Posicion": 2,
+            "Ancho": 17
+          },
+          "TipoArticulo": {
+            "Titulo": "Tipo",
+            "Posicion": 3,
+            "Ancho": 12.57
+          },
+          "TituloArticulo": {
+            "Titulo": "Título",
+            "Posicion": 4,
+            "Ancho": 45.71
+          },
+          "PreguntasInvestigacion": {
+            "Titulo": "Preguntas de Investigación",
+            "Posicion": 5,
+            "Columnas": [
+              {
+                "Titulo": "P1",
+                "Posicion": 1,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P2",
+                "Posicion": 2,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P3",
+                "Posicion": 3,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P4",
+                "Posicion": 4,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P5",
+                "Posicion": 5,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P6",
+                "Posicion": 6,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              }
+            ]
+          }
+        }
+      },
+      "Artículos por Revisar": {
+        "Posicion": 1,
+        "Estilo": "TituloCabecera",
+        "Columnas": {
+          "Item": {
+            "Titulo": "#",
+            "Posicion": 1,
+            "Ancho": 7.14,
+            "Altura": 20.25
+          },
+          "Origen": {
+            "Titulo": "Base de Datos",
+            "Posicion": 2,
+            "Ancho": 17
+          },
+          "TipoArticulo": {
+            "Titulo": "Tipo",
+            "Posicion": 3,
+            "Ancho": 12.57
+          },
+          "TituloArticulo": {
+            "Titulo": "Título",
+            "Posicion": 4,
+            "Ancho": 45.71
+          },
+          "ResumenArticulo": {
+            "Titulo": "Resumen",
+            "Posicion": 5,
+            "Ancho": 82.57
+          },
+          "AutoresArticulo": {
+            "Titulo": "Autores",
+            "Posicion": 6,
+            "Ancho": 18.57
+          },
+          "PublicadoEn": {
+            "Titulo": "Publicación",
+            "Posicion": 7,
+            "Ancho": 21.57
+          },
+          "VolumenPublicacion": {
+            "Titulo": "Volumen",
+            "Posicion": 8,
+            "Ancho": 10.86
+          },
+          "NumeroPublicacion": {
+            "Titulo": "Número",
+            "Posicion": 9,
+            "Ancho": 10
+          },
+          "PaginasEnPublicacion": {
+            "Titulo": "Páginas",
+            "Posicion": 10,
+            "Ancho": 11.86
+          },
+          "AnoPublicacion": {
+            "Titulo": "Año",
+            "Posicion": 11,
+            "Ancho": 6.14
+          },
+          "IdentificadorArticulo": {
+            "Titulo": "DOI",
+            "Posicion": 12,
+            "Ancho": 32.57
+          },
+          "UrlArticulo": {
+            "Titulo": "URL",
+            "Posicion": 13,
+            "Ancho": 46.14
+          },
+          "NombreArchivoArticulo": {
+            "Titulo": "Nombre del Archivo",
+            "Posicion": 14,
+            "Ancho": 46.14
+          },
+          "RutaArchivoArticulo": {
+            "Titulo": "Ruta del Archivo",
+            "Posicion": 15,
+            "Ancho": 29.43
+          },
+          "CriteriosExclusion": {
+            "Titulo": "Criterios de Exclusión",
+            "Posicion": 16,
+            "Columnas": [
+              {
+                "Titulo": "CE1",
+                "Posicion": 1,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE2",
+                "Posicion": 2,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE3",
+                "Posicion": 3,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion",
+                "Columnas": [
+                  {
+                    "Titulo": "CE3.1",
+                    "Posicion": 4,
+                    "Ancho": 35.43,
+                    "Estilo": "TituloCriteriosExclusion"
+                  },
+                  {
+                    "Titulo": "CE3.2",
+                    "Posicion": 5,
+                    "Ancho": 35.43,
+                    "Estilo": "TituloCriteriosExclusion"
+                  }
+                ]
+              },
+              {
+                "Titulo": "CE4",
+                "Posicion": 4,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              },
+              {
+                "Titulo": "CE5",
+                "Posicion": 5,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosExclusion"
+              }
+            ]
+          },
+          "CriteriosInclusion": {
+            "Titulo": "Criterios de Inclusión",
+            "Posicion": 17,
+            "Columnas": [
+              {
+                "Titulo": "CI1",
+                "Posicion": 1,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI2",
+                "Posicion": 2,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI3",
+                "Posicion": 3,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI4",
+                "Posicion": 4,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              },
+              {
+                "Titulo": "CI5",
+                "Posicion": 5,
+                "Ancho": 35.43,
+                "Estilo": "TituloCriteriosInclusion"
+              }
+            ]
+          },
+          "PreguntasInvestigacion": {
+            "Titulo": "Preguntas de Investigación",
+            "Posicion": 18,
+            "Columnas": [
+              {
+                "Titulo": "P1",
+                "Posicion": 1,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P2",
+                "Posicion": 2,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P3",
+                "Posicion": 3,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P4",
+                "Posicion": 4,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P5",
+                "Posicion": 5,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              },
+              {
+                "Titulo": "P6",
+                "Posicion": 6,
+                "Ancho": 35.43,
+                "Estilo": "TituloPreguntasInvestigacion"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "Estilos": {
+      "TituloCabecera": {
+        "Mayusculas": true,
+        "AlineadoHorizontal": "Izquierda",
+        "AlineadoVertical": "Centro",
+        "AjustarTexto": false,
+        "ColorFondo": "Turquesa",
+        "Borde": "Grueso",
+        "Fuente": {
+          "Nombre": "Tahoma",
+          "Tamano": 10,
+          "Color": "Blanco",
+          "Cursiva": false,
+          "Negrita": true,
+          "Subrayado": false
+        }
+      },
+      "TituloCriteriosExclusion": {
+        "Mayusculas": true,
+        "AlineadoHorizontal": "Centro",
+        "AlineadoVertical": "Centro",
+        "AjustarTexto": false,
+        "ColorFondo": "Rojo",
+        "Borde": "Grueso",
+        "Fuente": {
+          "Nombre": "Tahoma",
+          "Tamano": 10,
+          "Color": "Blanco",
+          "Cursiva": false,
+          "Negrita": true,
+          "Subrayado": false
+        }
+      },
+      "TituloCriteriosInclusion": {
+        "Mayusculas": true,
+        "AlineadoHorizontal": "Centro",
+        "AlineadoVertical": "Centro",
+        "AjustarTexto": false,
+        "ColorFondo": "Azul",
+        "Borde": "Grueso",
+        "Fuente": {
+          "Nombre": "Tahoma",
+          "Tamano": 10,
+          "Color": "Blanco",
+          "Cursiva": false,
+          "Negrita": true,
+          "Subrayado": false
+        }
+      },
+      "TituloPreguntasInvestigacion": {
+        "Mayusculas": true,
+        "AlineadoHorizontal": "Centro",
+        "AlineadoVertical": "Centro",
+        "AjustarTexto": false,
+        "ColorFondo": "Negro",
+        "Borde": "Grueso",
+        "Fuente": {
+          "Nombre": "Tahoma",
+          "Tamano": 10,
+          "Color": "Blanco",
+          "Cursiva": false,
+          "Negrita": true,
+          "Subrayado": false
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ internal abstract class Pregunta
     {
         Indice = indice;
         Evaluar = evaluar;
-        NumeroFilaEnTabla = Settings.Constants.NUMERO_FILA_PREGUNTAS;
+        NumeroFilaEnTabla = AppSettings.Constants.NUMERO_FILA_PREGUNTAS;
         TipoPregunta = tipoPregunta;
     }
 
@@ -23,7 +23,7 @@ internal sealed class PreguntaInvestigacion : Pregunta
     public PreguntaInvestigacion(int indice, TipoPregunta tipoPregunta, bool evaluar = true)
         : base(indice, evaluar, tipoPregunta)
     {
-        NumeroColumnaEnTabla = Settings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() + indice;
+        NumeroColumnaEnTabla = AppSettings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() + indice;
     }
 }
 
@@ -32,8 +32,8 @@ internal sealed class PreguntaInclusion : Pregunta
     public PreguntaInclusion(int indice, TipoPregunta tipoPregunta, bool evaluar = true)
         : base(indice, evaluar, tipoPregunta)
     {
-        NumeroColumnaEnTabla = Settings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() +
-            (Settings.PreguntasDeInvestigacion?.Length ?? 0) + indice;
+        NumeroColumnaEnTabla = AppSettings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() +
+            (AppSettings.PreguntasDeInvestigacion?.Length ?? 0) + indice;
     }
 }
 
@@ -42,8 +42,8 @@ internal sealed class PreguntaExclusion : Pregunta
     public PreguntaExclusion(int indice, TipoPregunta tipoPregunta, bool evaluar = true)
         : base(indice, evaluar, tipoPregunta)
     {
-        NumeroColumnaEnTabla = Settings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() +
-            (Settings.PreguntasDeInvestigacion?.Length ?? 0) + (Settings.PreguntasDeInclusion?.Length ?? 0) + indice;
+        NumeroColumnaEnTabla = AppSettings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() +
+            (AppSettings.PreguntasDeInvestigacion?.Length ?? 0) + (AppSettings.PreguntasDeInclusion?.Length ?? 0) + indice;
     }
 }
 
@@ -79,10 +79,10 @@ internal static class Extensions
                     EvaluationHelper.EvaluarSiArchivoEstaDisponible(worksheet, numeroColumnaDeLaCeldaEvaluada,
                         (rowNumber, columnNumber) =>
                         {
-                            string criterioDeExclusionPrevioRequerido = Settings.Columnas.ResultadosCriterioExclusion[COLUMNA_CE5];
+                            string criterioDeExclusionPrevioRequerido = AppSettings.Columnas.ResultadosCriterioExclusion[COLUMNA_CE5];
                             var numeroDeLaColumnaDeLaCondicionPorEvaluar = GetNumeroDeLaColumnaDeLaExclusionionPorEvaluar(criterioDeExclusionPrevioRequerido);
                             string valorActual = worksheet.Cell(rowNumber, numeroDeLaColumnaDeLaCondicionPorEvaluar).Value.ToString();
-                            return valorActual.Equals(Settings.Constants.SI) || valorActual.Equals(Settings.Constants.NO_DEFINIDO);
+                            return valorActual.Equals(AppSettings.Constants.SI) || valorActual.Equals(AppSettings.Constants.NO_DEFINIDO);
                         }, idsDeLasPreguntasPorEvaluar: idsDeLasPreguntasPorEvaluar);
                     break;
                 case TipoPregunta.EvaluaSegunPdf:
@@ -90,17 +90,17 @@ internal static class Extensions
                     EvaluationHelper.EvaluarPreguntaSegunDocumento(worksheet, textoPorEvaluar, numeroDeLaColumnaDeLaCondicionPorEvaluar,
                         numeroColumnaDeLaCeldaEvaluada, (rowNumber, columnNumber) =>
                         {
-                            return worksheet.Cell(rowNumber, columnNumber).Value.ToString().Equals(Settings.Constants.NO);
+                            return worksheet.Cell(rowNumber, columnNumber).Value.ToString().Equals(AppSettings.Constants.NO);
                         }, soloReprocesaErrores, idsDeLasPreguntasPorEvaluar: idsDeLasPreguntasPorEvaluar);
                     break;
                 case TipoPregunta.EvaluaSegunAbstract:
                     EvaluationHelper.EvaluarPreguntaSegunAbstract(worksheet, textoPorEvaluar, numeroColumnaDeLaCeldaEvaluada,
                         (rowNumber, columnNumber) =>
                         {
-                            string criterioDeExclusionPrevioRequerido = Settings.Columnas.ResultadosCriterioExclusion[COLUMNA_CE1];
+                            string criterioDeExclusionPrevioRequerido = AppSettings.Columnas.ResultadosCriterioExclusion[COLUMNA_CE1];
                             var numeroDeLaColumnaDeLaCondicionPorEvaluar = GetNumeroDeLaColumnaDeLaExclusionionPorEvaluar(criterioDeExclusionPrevioRequerido);
                             string value = worksheet.Cell(rowNumber, columnNumber).Value.ToString();
-                            return (!string.IsNullOrWhiteSpace(value) && !value.Equals(Settings.Constants.NO_DEFINIDO));
+                            return (!string.IsNullOrWhiteSpace(value) && !value.Equals(AppSettings.Constants.NO_DEFINIDO));
                         }, idsDeLasPreguntasPorEvaluar: idsDeLasPreguntasPorEvaluar);
                     break;
                 default: break;
@@ -113,17 +113,17 @@ internal static class Extensions
         return pregunta.GetType().Name switch
         {
             nameof(PreguntaExclusion) => numeroColumnaDeLaCeldaEvaluada - pregunta.Indice + 1,
-            nameof(PreguntaInclusion) => numeroColumnaDeLaCeldaEvaluada + (Settings.PreguntasDeExclusion?.Length ?? 0) - pregunta.Indice + 1,
-            nameof(PreguntaInvestigacion) => numeroColumnaDeLaCeldaEvaluada + (Settings.PreguntasDeInclusion?.Length ?? 0) + (Settings.PreguntasDeExclusion?.Length ?? 0) - pregunta.Indice + 2,
+            nameof(PreguntaInclusion) => numeroColumnaDeLaCeldaEvaluada + (AppSettings.PreguntasDeExclusion?.Length ?? 0) - pregunta.Indice + 1,
+            nameof(PreguntaInvestigacion) => numeroColumnaDeLaCeldaEvaluada + (AppSettings.PreguntasDeInclusion?.Length ?? 0) + (AppSettings.PreguntasDeExclusion?.Length ?? 0) - pregunta.Indice + 2,
             _ => 0
         };
     }
 
     private static int GetNumeroDeLaColumnaDeLaExclusionionPorEvaluar(string tituloDeLaColumnaConElCriterioDeExclusionRequerido)
     {
-        return Settings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() +
-                                        (Settings.PreguntasDeInvestigacion?.Length ?? 0) + (Settings.PreguntasDeInclusion?.Length ?? 0) +
-                                        (Settings.PreguntasDeExclusion?.Length ?? 0) + Settings.Columnas.ResultadosCriterioExclusion.NumeroColumna(tituloDeLaColumnaConElCriterioDeExclusionRequerido);
+        return AppSettings.Columnas.NumeroUltimaColumnaAntesDeLasPreguntas() +
+                                        (AppSettings.PreguntasDeInvestigacion?.Length ?? 0) + (AppSettings.PreguntasDeInclusion?.Length ?? 0) +
+                                        (AppSettings.PreguntasDeExclusion?.Length ?? 0) + AppSettings.Columnas.ResultadosCriterioExclusion.NumeroColumna(tituloDeLaColumnaConElCriterioDeExclusionRequerido);
     }
     /*
     #region Preguntas de Exclusion

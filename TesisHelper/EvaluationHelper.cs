@@ -15,10 +15,10 @@ namespace TesisHelper
         {
             if (worksheet == null) return;
 
-            int numeroDeColumnaConIdRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + Settings.Columnas.Informacion.NumeroColumna(Settings.Constants.COLUMNA_ID) - 1;
-            int numeroDeColumnaConNombreDelArchivoRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + Settings.Columnas.Informacion.NumeroColumna(Settings.Constants.COLUMNA_ARCHIVO) - 1;
+            int numeroDeColumnaConIdRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + AppSettings.Columnas.Informacion.NumeroColumna(AppSettings.Constants.COLUMNA_ID) - 1;
+            int numeroDeColumnaConNombreDelArchivoRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + AppSettings.Columnas.Informacion.NumeroColumna(AppSettings.Constants.COLUMNA_ARCHIVO) - 1;
 
-            var filasPorEvaluar = worksheet.RangeUsed().RowsUsed().Skip(Settings.Constants.FILAS_SIN_USAR);
+            var filasPorEvaluar = worksheet.RangeUsed().RowsUsed().Skip(AppSettings.Constants.FILAS_SIN_USAR);
             foreach (var fila in filasPorEvaluar)
             {
                 var numeroDeFilaActual = fila.RowNumber();
@@ -27,14 +27,14 @@ namespace TesisHelper
 
                 if (condicionPorEvaluarParaEstaPregunta?.Invoke(numeroDeFilaActual, numeroDelaColumnaDeLaPreguntaEvaluada) ?? false)
                 {
-                    bool archivoExiste = !worksheet.Cell(numeroDeFilaActual, numeroDeColumnaConNombreDelArchivoRequerido).Value.ToString().Equals(Settings.Constants.ARCHIVO_NO_ENCONTRADO);
-                    worksheet.Cell(numeroDeFilaActual, numeroDelaColumnaDeLaPreguntaEvaluada).Value = !archivoExiste ? Settings.Constants.SI : Settings.Constants.NO;
+                    bool archivoExiste = !worksheet.Cell(numeroDeFilaActual, numeroDeColumnaConNombreDelArchivoRequerido).Value.ToString().Equals(AppSettings.Constants.ARCHIVO_NO_ENCONTRADO);
+                    worksheet.Cell(numeroDeFilaActual, numeroDelaColumnaDeLaPreguntaEvaluada).Value = !archivoExiste ? AppSettings.Constants.SI : AppSettings.Constants.NO;
                 }
                 else
                 {
                     worksheet.Cell(numeroDeFilaActual, numeroDelaColumnaDeLaPreguntaEvaluada).Value = string.Empty;
                 }
-                ExcelForPapersEvaluation.Save();
+                ExcelTools.Grabar();
             }
         }
 
@@ -43,10 +43,10 @@ namespace TesisHelper
         {
             if (worksheet == null) return;
 
-            int numeroDeColumnaConIdRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + Settings.Columnas.Informacion.NumeroColumna(Settings.Constants.COLUMNA_ID) - 1;
-            int numeroDeColumnaDeAbstract = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + Settings.Columnas.Informacion.NumeroColumna(Settings.Constants.COLUMNA_ABSTRACT) - 1;
+            int numeroDeColumnaConIdRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + AppSettings.Columnas.Informacion.NumeroColumna(AppSettings.Constants.COLUMNA_ID) - 1;
+            int numeroDeColumnaDeAbstract = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + AppSettings.Columnas.Informacion.NumeroColumna(AppSettings.Constants.COLUMNA_ABSTRACT) - 1;
 
-            var filasPorEvaluar = worksheet.RangeUsed().RowsUsed().Skip(Settings.Constants.FILAS_SIN_USAR);
+            var filasPorEvaluar = worksheet.RangeUsed().RowsUsed().Skip(AppSettings.Constants.FILAS_SIN_USAR);
             foreach (var fila in filasPorEvaluar)
             {
                 var numeroDeFilaActual = fila.RowNumber();
@@ -60,7 +60,7 @@ namespace TesisHelper
                 KillEdgeProcess(browser);
                 if (copilotResponse?.Equals(questionToEvaluate) ?? true) continue;
                 SetResponse(worksheet, numeroDelaColumnaDeLaPreguntaEvaluada, numeroDeFilaActual, copilotResponse);
-                ExcelForPapersEvaluation.Save();
+                ExcelTools.Grabar();
             }
         }
 
@@ -78,10 +78,10 @@ namespace TesisHelper
         {
             if (worksheet == null) return;
 
-            int numeroDeColumnaConRutaDelArchivoRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + Settings.Columnas.Informacion.NumeroColumna(Settings.Constants.COLUMNA_RUTA) - 1;
-            int numeroDeColumnaConIdRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + Settings.Columnas.Informacion.NumeroColumna(Settings.Constants.COLUMNA_ID) - 1;
+            int numeroDeColumnaConRutaDelArchivoRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + AppSettings.Columnas.Informacion.NumeroColumna(AppSettings.Constants.COLUMNA_RUTA) - 1;
+            int numeroDeColumnaConIdRequerido = worksheet.RangeUsed().FirstColumnUsed().ColumnNumber() + AppSettings.Columnas.Informacion.NumeroColumna(AppSettings.Constants.COLUMNA_ID) - 1;
 
-            var filasPorEvaluar = worksheet.RangeUsed().RowsUsed().Skip(Settings.Constants.FILAS_SIN_USAR);
+            var filasPorEvaluar = worksheet.RangeUsed().RowsUsed().Skip(AppSettings.Constants.FILAS_SIN_USAR);
             foreach (var fila in filasPorEvaluar)
             {
                 var numeroDeFilaActual = fila.RowNumber();
@@ -132,9 +132,9 @@ namespace TesisHelper
                             continue;
                         }
                     }
-                    SetResponse(worksheet, numeroDelaColumnaDeLaPreguntaEvaluada, numeroDeFilaActual, Settings.Constants.DOCUMENTO_NO_ENCONTRADO);
+                    SetResponse(worksheet, numeroDelaColumnaDeLaPreguntaEvaluada, numeroDeFilaActual, AppSettings.Constants.DOCUMENTO_NO_ENCONTRADO);
                 }
-                ExcelForPapersEvaluation.Save();
+                ExcelTools.Grabar();
             }
         }
 

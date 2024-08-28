@@ -13,7 +13,7 @@ namespace TesisHelper
         {
             Console.WriteLine("Starting Microsoft Edge and enabling Copilot...");
             //Process.Start(new ProcessStartInfo("cmd", $"/c start microsoft-edge://?ux=copilot&tcp=1&source=taskbar") { CreateNoWindow = true });
-            Process p = uri == null ? Process.Start(Settings.Constants.EDGE_DIRECTORY) : Process.Start(Settings.Constants.EDGE_DIRECTORY, $"--new-window {uri}");
+            Process p = uri == null ? Process.Start(AppSettings.Constants.EDGE_DIRECTORY) : Process.Start(AppSettings.Constants.EDGE_DIRECTORY, $"--new-window {uri}");
             Thread.Sleep(3000);
 
             if (p != null)
@@ -30,8 +30,8 @@ namespace TesisHelper
         public static string? EvaluateQuestion(Process p, string question, bool usePdf = false,
             int waitingTime = 60000)
         {
-            List<string> KeysForAbstract = new List<string> { Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.ENTER };
-            List<string> KeysForPdf = new List<string> { Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.SHIFT_TAB, Settings.Keys.ENTER };
+            List<string> KeysForAbstract = new List<string> { AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.ENTER };
+            List<string> KeysForPdf = new List<string> { AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.SHIFT_TAB, AppSettings.Keys.ENTER };
 
             string questionForCopilot = $"{(usePdf ? "@This page: " : "")}{question}{Environment.NewLine}";
             Console.WriteLine($"Sending question to Copilot: {questionForCopilot}");
@@ -57,7 +57,7 @@ namespace TesisHelper
                         SendKeys.SendWait(key);
                         Thread.Sleep(1000);
                     }
-                    keys.Insert(0, Settings.Keys.SHIFT_TAB);
+                    keys.Insert(0, AppSettings.Keys.SHIFT_TAB);
                 }
                 else
                 {
@@ -72,10 +72,10 @@ namespace TesisHelper
         {
             switch (key)
             {
-                case Settings.Keys.ENTER: return Settings.Keys.ESC;
-                case Settings.Keys.ESC: return Settings.Keys.ENTER;
-                case Settings.Keys.SHIFT_TAB: return Settings.Keys.TAB;
-                case Settings.Keys.TAB: return Settings.Keys.SHIFT_TAB;
+                case AppSettings.Keys.ENTER: return AppSettings.Keys.ESC;
+                case AppSettings.Keys.ESC: return AppSettings.Keys.ENTER;
+                case AppSettings.Keys.SHIFT_TAB: return AppSettings.Keys.TAB;
+                case AppSettings.Keys.TAB: return AppSettings.Keys.SHIFT_TAB;
             }
             return string.Empty;
         }
