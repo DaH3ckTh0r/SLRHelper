@@ -5,10 +5,10 @@
         public static class Constants
         {
             public const string EDGE_DIRECTORY = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
-            public const string MAIN_PATH = @"C:\Users\hecto\OneDrive\Documents\Maestria\Direccion de Tesis I";
+            public const string MAIN_PATH = @"C:\Users\Hector\OneDrive\Documents\Maestria\Direccion de Tesis II";
             public const string PAPERS_PATH = @$"{MAIN_PATH}\Papers";
             public const string REVIEWS_PATH = @$"{MAIN_PATH}\Reviews";
-            public const string EXCEL_FILE_NAME = "Evaluacion de Papers.xlsx";
+            public const string EXCEL_FILE_NAME = "Evaluacion de Papers.xlsm";
             public const int NUMERO_FILA_PREGUNTAS = 4;
             public const int FILAS_SIN_USAR = 3;
 

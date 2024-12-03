@@ -43,21 +43,24 @@ namespace TesisHelper
             int times = 3;
             do
             {
-                foreach (var key in keys)
+                /*foreach (var key in keys)
                 {
                     SendKeys.SendWait(key);
                     Thread.Sleep(1000);
-                }
+                }*/
+                MouseHelper.CLick();
                 var copilotResponse = ClipboardHelper.GetText() ?? questionForCopilot;
                 if (copilotResponse.Equals(questionForCopilot) || string.IsNullOrEmpty(copilotResponse))
                 {
-                    for (var i = keys.Count - 1; i >= 0; i--)
+                    /*for (var i = keys.Count - 1; i >= 0; i--)
                     {
                         string key = GetOppositeKey(keys[i]);
                         SendKeys.SendWait(key);
                         Thread.Sleep(1000);
                     }
-                    keys.Insert(0, Settings.Keys.SHIFT_TAB);
+                    keys.Insert(0, Settings.Keys.SHIFT_TAB);*/
+                    MessageBox.Show("¡Posiciona el mouse encima del botón Copiar!", "No te duermas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Thread.Sleep(5000);
                 }
                 else
                 {

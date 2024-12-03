@@ -35,7 +35,7 @@ if (worksheet != null)
             return new PreguntaExclusion(i, tipoPregunta);
         }).ToArray();
 
-    Settings.IdsAProcesar = [469, 472, 485];
+    Settings.IdsAProcesar = [919, 929, 933, 945, 991, 999];
 
     Settings.PreguntasDeExclusion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: Settings.IdsAProcesar);
     Settings.PreguntasDeInclusion.Evaluar(worksheet, idsDeLasPreguntasPorEvaluar: Settings.IdsAProcesar);
